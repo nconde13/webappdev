@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.alert-box {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.alert-box[data-type="success"] {
+    border-color: #b1dfbb;
+    background-color: #d5f5e3;
+}
+.alert-box[data-type="error"] {
+    border-color: #fbc2c2;
+    background-color: #fde2e2;
+}
+
+.alert-box h2 {
+    margin-top: 0;
+}
+
+.alert-box button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert-box button:hover {
+    background-color: #0056b3;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Additional style for the registration link */
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.login-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.login-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.login-option {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.login-option.admin {
+    background-color: #007bff;
+}
+
+.login-option.student {
+    background-color: #28a745;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.error-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h1 {
+    color: #dc3545; /* Red color for error messages */
+}
+
+.error-container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: #dc3545; /* Red background for the link */
+}
+
+.error-container a:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

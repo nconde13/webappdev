@@ -1,0 +1,8 @@
+spring:
+  #JPA
+  jpa:
+    show-sql: true
+
+#Server Port
+server:
+  port: 8081
