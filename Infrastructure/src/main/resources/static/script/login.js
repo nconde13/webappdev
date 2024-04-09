@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loginType.textContent = 'Admin Login';
         document.getElementById('student-link').style.display = 'block';
     } else {
-        loginType.textContent = 'Student Login';
+        loginType.textContent = 'User Login';
         document.getElementById('admin-link').style.display = 'block';
     }
     
