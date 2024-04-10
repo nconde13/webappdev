@@ -1,0 +1,8 @@
+spring:
+  #JPA
+  jpa:
+    show-sql: false
+
+#Server Port
+server:
+  port: 9090

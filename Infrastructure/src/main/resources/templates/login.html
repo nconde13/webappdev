@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetaBuilders: Login</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/main.css">
+</head>
+<body>
+<header>
+    <img src="../static/images/logo/Logo.png" alt="BetaBuilders Logo" width="200" height="auto">
+</header>
+
+<div class="container">
+    <h2 id="loginType"></h2>
+
+    <h2>LOGIN</h2>
+    <form th:action="@{/login}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+    <!-- Link to the registration page -->
+    <br/>
+    <div class="register-link">
+        <a href="../static/register.html">Don't have an account? Register here.</a>
+    </div>
+    <div class="register-link" id="admin-link" style="display: none">
+        <a href="/login?type=admin">Click here to login as Admin</a>
+    </div>
+    <div class="register-link" id="student-link" style="display: none">
+        <a href="/login">Click here to login as Customer</a>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../static/script/login.js"></script>
+</html>
