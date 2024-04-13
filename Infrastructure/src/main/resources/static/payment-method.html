@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetaBuilders: Order Confirmed</title>
+    <link rel="stylesheet" type="text/css" href="../static/style/main.css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .payment-option {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        .payment-option img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .selected {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/index.html">
+            <img src="../static/images/logo/Logo.png" alt="Company Logo" style="height: 50px; width: auto;">
+        </a>
+    </header>
+    <div class="centered-content">
+        <h2 style="color: black;">How would you like to pay?</h2>
+        <div>
+            <div class="payment-option" id="creditCardOption" onclick="selectPaymentOption('creditCard')">
+                <img src="../static/images/logo/Card.png" alt="Debit/Credit Card">
+                <p style="color: black;">Debit/Credit</p>
+            </div>
+            <div class="payment-option" id="giftCardOption" onclick="selectPaymentOption('giftCard')">
+                <img src="../static/images/logo/Gift.png" alt="Gift Card">
+                <p style="color: black;">Gift Card</p>
+            </div>
+        </div>
+        <button id="continueButton" onclick="continueToCheckout()" disabled>Continue</button>
+        <button onclick="goBackToIndex()">Go Back</button>
+    </div>
+</body>
+<script type="text/javascript" src="../static/script/paymentmethod.js"></script>
+</html>

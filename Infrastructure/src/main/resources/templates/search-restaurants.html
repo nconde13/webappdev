@@ -6,31 +6,29 @@
     <title>BetaBuilders: Search Restaurants</title>
     <link rel="stylesheet" type="text/css" href="../static/style/main.css">
     <style>
-        /* Additional styles for the search bar */
         .search-bar {
-            width: 60%; /* Adjust width as needed */
-            max-width: 600px; /* Set a maximum width for larger screens */
-            margin: 20px auto; /* Center align the search bar */
+            width: 60%; 
+            max-width: 600px; 
+            margin: 20px auto; 
             border: 1px solid black;
-            padding: 15px; /* Increase padding for larger size */
-            font-size: 18px; /* Increase font size for better visibility */
+            padding: 15px; 
+            font-size: 18px; 
             color: gray;
-            display: block; /* Ensure the search bar is displayed as a block element */
+            display: block; 
         }
-        /* Additional styles for the restaurant list */
         .restaurant-list {
-            list-style-type: none; /* Remove default list styles */
+            list-style-type: none; 
             padding: 0;
-            margin-top: 20px; /* Add margin to separate search bar and restaurant list */
+            margin-top: 20px; 
         }
         .restaurant-list li {
-            margin-bottom: 5px; /* Add margin between each restaurant */
+            margin-bottom: 5px; 
             border: 1px solid black;
-            padding: 10px; /* Add padding for better readability */
-            cursor: pointer; /* Change cursor to pointer on hover */
+            padding: 10px; 
+            cursor: pointer; 
         }
         .restaurant-list li:hover {
-            background-color: lightgray; /* Change background color on hover */
+            background-color: lightgray; 
         }
     </style>
 </head>
@@ -41,12 +39,9 @@
         </a>
     </header>
 
-    <!-- Centered and styled <h2> -->
     <h2 style="text-align: center; color: black; font-family: monospace;">SEARCH RESTAURANTS</h2>
-    <!-- Gray search bar with black outline -->
     <input type="text" class="search-bar" placeholder="Search restaurants...">
     
-    <!-- Empty list to display filtered and sorted restaurants -->
     <ul class="restaurant-list" style="font-family: monospace;"></ul>
 
 </body>
