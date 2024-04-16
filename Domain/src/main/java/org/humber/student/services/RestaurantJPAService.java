@@ -7,7 +7,7 @@ import java.util.List;
 public interface RestaurantJPAService {
     Restaurant getRestaurantById(Long restaurantId);
 
-    List<Restaurant> getAllRestaurants();
+    List<Restaurant> getAllRestaurants();  
 
     Restaurant saveRestaurant(Restaurant restaurant);
 

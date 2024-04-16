@@ -15,7 +15,6 @@ public class Customer {
     private Long customerId;
     private String name;
     private String email;
-    private String password;
     private String phone;
     private Address address;
     private List<Order> orders;

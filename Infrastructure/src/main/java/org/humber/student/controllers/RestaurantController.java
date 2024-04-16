@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/restaurants")
 @Slf4j
@@ -27,8 +29,15 @@ public class RestaurantController {
     }
 
     @GetMapping("/{restaurantId}")
-    public Restaurant getRestaurant(@PathVariable Long restaurantId) {
-        return restaurantService.getRestaurant(restaurantId);
+    public ResponseEntity<Restaurant> getRestaurant(@PathVariable Long restaurantId) {
+        Restaurant restaurant = restaurantService.getRestaurant(restaurantId);
+        return ResponseEntity.ok(restaurant);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Restaurant>> getAllRestaurants() {
+        List<Restaurant> restaurants = restaurantService.getAllRestaurants();
+        return ResponseEntity.ok(restaurants);
     }
 
     @PutMapping("/{restaurantId}")
@@ -40,12 +49,12 @@ public class RestaurantController {
     }
 
     @DeleteMapping("/{restaurantId}")
-    public String deleteRestaurant(@PathVariable Long restaurantId) {
+    public ResponseEntity<String> deleteRestaurant(@PathVariable Long restaurantId) {
         boolean deleted = restaurantService.deleteRestaurant(restaurantId);
         log.info("Deleted restaurant with id= {} {}", restaurantId, deleted);
         if (deleted) {
-            return "Restaurant deleted successfully!";
+            return ResponseEntity.ok("Restaurant deleted successfully!");
         }
-        return "Restaurant not found.";
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Restaurant not found.");
     }
 }

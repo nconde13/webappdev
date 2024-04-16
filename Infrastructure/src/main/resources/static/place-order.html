@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetaBuilders: Place Order</title>
+    <link rel="stylesheet" href="style/main.css">
+    <style>
+        .payment-options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .payment-options div {
+            margin-right: 20px;
+        }
+
+        .place-order-button {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid black;
+            margin-top: 20px;
+            text-align: center;
+            margin: 0 auto;  /* Center the button horizontally */
+        }   
+
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f0f8ff;">
+
+<div style="background-color: #add8e6; padding: 10px; text-align: center;">
+    <header>
+        <img src="images/logo/Logo.png" alt="BetaBuilders Logo" width="200" height="auto">
+    </header>
+
+    <div class="selected-item-box">
+        <img id="selected-item-image" alt="Selected Item" width="200" height="auto">
+        <h2 id="selected-item-name"></h2>
+        <p id="selected-item-price"></p>
+    </div>
+
+    <h2>Select Payment Method</h2>
+
+    <div class="payment-options">
+        <div>
+            <input type="radio" id="debit-credit" name="paymentMethod" value="Debit/Credit">
+            <label for="debit-credit">Debit/Credit</label>
+        </div>
+        <div>
+            <input type="radio" id="gift-card" name="paymentMethod" value="Gift Card">
+            <label for="gift-card">Gift Card</label>
+        </div>
+    </div>
+
+    <button class="place-order-button" onclick="placeOrder()">Place Order</button>
+</div>
+
+<footer>
+    <p style="font-family: monospace; text-align: center;">&copy; 2024 BetaBuilders. All rights reserved.</p>
+</footer>
+
+<script src="js/place-order.js"></script>
+</body>
+</html>

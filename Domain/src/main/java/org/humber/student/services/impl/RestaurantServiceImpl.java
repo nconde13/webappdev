@@ -64,4 +64,11 @@ public class RestaurantServiceImpl implements RestaurantService {
         }
         return restaurantJpaService.getRestaurantById(restaurantId);
     }
+
+    @Override
+    public List<Restaurant> getAllRestaurants() {
+        log.info("Getting all restaurants");
+        return restaurantJpaService.getAllRestaurants();
+    }
+
 }

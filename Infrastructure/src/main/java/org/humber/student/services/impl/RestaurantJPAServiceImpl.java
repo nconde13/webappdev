@@ -59,4 +59,5 @@ public class RestaurantJPAServiceImpl implements RestaurantJPAService {
     public Restaurant updateRestaurant(Restaurant restaurant) {
         return saveRestaurant(restaurant);
     }
+
 }
