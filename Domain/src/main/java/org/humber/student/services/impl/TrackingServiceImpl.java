@@ -27,13 +27,30 @@ public class TrackingServiceImpl implements TrackingService {
     }
 
     @Override
-    public Tracking updateTracking(Tracking tracking) {
-        return trackingJPAService.save(tracking);
+    public Tracking updateTracking(Long trackingId, Tracking tracking) {
+        Tracking existingTracking = trackingJPAService.findById(trackingId)
+                .orElseThrow(() -> new RuntimeException("Tracker not found with id: " + trackingId));
+
+        existingTracking.setTimeRemaining(tracking.getTimeRemaining());
+        existingTracking.setOrderStatus(tracking.getOrderStatus());
+
+        return trackingJPAService.save(existingTracking);
     }
 
     @Override
     public Tracking getTracking(Long trackingId) {
         return trackingJPAService.findById(trackingId)
-                .orElseThrow(() -> new RuntimeException("Course not found with id: " + trackingId));
+                .orElseThrow(() -> new RuntimeException("Tracker not found with id: " + trackingId));
+    }
+
+    @Override
+    public boolean updateTracking(Long trackingId, String orderStatus) {
+        Tracking existingTracking = trackingJPAService.findById(trackingId)
+                .orElseThrow(() -> new RuntimeException("Tracker not found with id: " + trackingId));
+
+        existingTracking.setOrderStatus(orderStatus);
+
+        trackingJPAService.save(existingTracking);
+        return true;
     }
 }

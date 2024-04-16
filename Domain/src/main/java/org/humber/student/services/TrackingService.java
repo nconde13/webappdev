@@ -8,7 +8,10 @@ public interface TrackingService {
 
     boolean deleteTracking(Long trackingId);
 
-    Tracking updateTracking(Tracking tracking);
+    Tracking updateTracking(Long trackingId, Tracking tracking);
 
     Tracking getTracking(Long trackingId);
+
+    boolean updateTracking(Long trackingId, String orderStatus);
+    
 }

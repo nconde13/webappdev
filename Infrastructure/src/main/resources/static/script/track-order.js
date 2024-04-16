@@ -13,19 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function sendDeliveryTime(deliveryTime) {
         var xhr = new XMLHttpRequest();
-        xhr.open('PUT', '/api/trackings/1/updateDeliveryTime?deliveryTime=' + deliveryTime, true);
+        xhr.open('PUT', '/api/trackings/1/updateDeliveryTime', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 console.log('Delivery time updated successfully!');
             }
         };
-        xhr.send();
+
+        var data = {
+            deliveryTime: deliveryTime,
+            orderStatus: 'Pending' 
+        };
+
+        xhr.send(JSON.stringify(data));
     }
-
-    updateTimer();
-
-    setInterval(updateTimer, 60000); 
 
     function markOrderReceived() {
         var xhr = new XMLHttpRequest();
@@ -43,21 +45,23 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
 
-    function sendDeliveryTime(deliveryTime) {
+    function cancelOrder() {
         var xhr = new XMLHttpRequest();
-        xhr.open('PUT', '/api/trackings/1/updateDeliveryTime', true);
+        xhr.open('PUT', '/api/trackings/1/cancelOrder', true); 
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                console.log('Delivery time updated successfully!');
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log('Order cancelled successfully!');
+                } else {
+                    console.error('Failed to cancel order.');
+                }
             }
         };
-    
-        var data = {
-            deliveryTime: deliveryTime,
-            orderStatus: 'Pending' 
-        };
-    
-        xhr.send(JSON.stringify(data));
+        xhr.send();
     }
+
+    updateTimer();
+
+    setInterval(updateTimer, 60000); 
 });

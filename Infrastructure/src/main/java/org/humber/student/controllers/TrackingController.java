@@ -31,10 +31,32 @@ public class TrackingController {
 
     @PutMapping("/{trackingId}")
     public ResponseEntity<Tracking> updateTracking(@PathVariable Long trackingId, @RequestBody Tracking tracking) {
-        // Set the trackingId from path variable
-        tracking.setTrackingId(trackingId);
-        Tracking updatedTracking = trackingService.updateTracking(tracking);
-        return ResponseEntity.ok(updatedTracking);
+        Tracking updatedTracking = trackingService.updateTracking(trackingId, tracking);
+        if (updatedTracking != null) {
+            return ResponseEntity.ok(updatedTracking);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{trackingId}/markReceived")
+    public ResponseEntity<Void> markReceived(@PathVariable Long trackingId) {
+        boolean updated = trackingService.updateTracking(trackingId, "Received");
+        if (updated) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{trackingId}/cancelOrder")
+    public ResponseEntity<Void> cancelOrder(@PathVariable Long trackingId) {
+        boolean updated = trackingService.updateTracking(trackingId, "CANCELLED");
+        if (updated) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{trackingId}")
