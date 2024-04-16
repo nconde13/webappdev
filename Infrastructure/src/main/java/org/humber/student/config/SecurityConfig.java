@@ -32,10 +32,9 @@ public class SecurityConfig {
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
-                        .defaultSuccessUrl("/swagger-ui.html")
+                        .defaultSuccessUrl("/home-page.html")
                 )
                 .logout(logout -> logout
-                        .permitAll()
                         .logoutSuccessUrl("/")
                 )
                 .csrf(AbstractHttpConfigurer::disable)
@@ -62,10 +61,9 @@ public class SecurityConfig {
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
-                        .defaultSuccessUrl("/swagger-ui.html")
+                        .defaultSuccessUrl("/home-page.html")
                 )
                 .logout(logout -> logout
-                        .permitAll()
                         .logoutSuccessUrl("/")
                 )
                 .csrf(AbstractHttpConfigurer::disable)

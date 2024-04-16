@@ -28,9 +28,9 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
             alertMessage.textContent = isRegistered;
             if (isRegistered === 'true') {
                 alertBox.setAttribute('data-type', 'success');
-                alertMessage.textContent = 'User registered successfully, Redirecting to home page...';
+                alertMessage.textContent = 'User registered successfully, Redirecting to login page...';
                 setTimeout(() => {
-                    window.location.href = '/home-page.html'; // Redirect to home page
+                    window.location.href = '/login'; // Redirect to home page
                 }, 3000);
             } else {
                 alertBox.setAttribute('data-type', 'error');

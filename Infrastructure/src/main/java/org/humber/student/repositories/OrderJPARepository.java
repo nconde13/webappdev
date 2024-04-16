@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface OrderJPARepository extends JpaRepository<OrderEntity, String> {
+public interface OrderJPARepository extends JpaRepository<OrderEntity, Long> {
 
     @Query("SELECT g FROM OrderEntity g WHERE g.customer.customerId = :customerId")
     List<OrderEntity> findAllByOrder(Long customerId);
+
+    List<OrderEntity> findByUser_Id(Long userId);
 }

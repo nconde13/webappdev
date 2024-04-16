@@ -2,7 +2,7 @@ package org.humber.student.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.humber.student.dto.UserDto;
-import org.humber.student.repositories.UserRepository;
+import org.humber.student.repositories.UserJPARepository;
 import org.humber.student.repositories.entities.UserEntity;
 import org.humber.student.services.ApplicationUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,17 @@ import org.springframework.stereotype.Service;
 public class ApplicationUserDetailsServiceImpl implements ApplicationUserDetailsService {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserRepository userRepository;
+    private final UserJPARepository userJPARepository;
 
     @Autowired
-    public ApplicationUserDetailsServiceImpl(PasswordEncoder passwordEncoder, UserRepository userRepository) {
+    public ApplicationUserDetailsServiceImpl(PasswordEncoder passwordEncoder, UserJPARepository userJPARepository) {
         this.passwordEncoder = passwordEncoder;
-        this.userRepository = userRepository;
+        this.userJPARepository = userJPARepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUsername(username)
+        UserEntity user = userJPARepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
         return User
@@ -40,7 +40,7 @@ public class ApplicationUserDetailsServiceImpl implements ApplicationUserDetails
     @Override
     public boolean registerUser(UserDto userDto) {
         try{
-            if(userRepository.existsByUsername(userDto.getUsername())){
+            if(userJPARepository.existsByUsername(userDto.getUsername())){
                 log.info("User already exists");
                 return false;
             }
@@ -48,7 +48,7 @@ public class ApplicationUserDetailsServiceImpl implements ApplicationUserDetails
             user.setUsername(userDto.getUsername());
             user.setPassword(passwordEncoder.encode(userDto.getPassword()));
             user.setRoles(userDto.getRoles());
-            userRepository.save(user);
+            userJPARepository.save(user);
             return true;
         } catch (Exception e){
             log.error("Error registering user ", e);

@@ -13,5 +13,5 @@ public class UserDto {
     private String username;
     @NonNull
     private String password;
-    private String roles = "CUSTOMER"; //sets default role to USER
+    private String roles = "USER"; //sets default role to USER
 }

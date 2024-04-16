@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetaBuilders: Search Restaurants</title>
-    <link rel="stylesheet" type="text/css" href="../static/style/main.css">
+    <link rel="stylesheet" th:href="@{/style/main.css}" type="text/css">
     <style>
         /* Additional styles for the search bar */
         .search-bar {
@@ -36,8 +36,8 @@
 </head>
 <body>
     <header>
-        <a href="../static/home-page.html">
-            <img src="../static/images/logo/Logo.png" alt="BetaBuilders Logo" width="200" height="auto">
+        <a th:href="@{/home-page.html}">
+            <img th:src="@{/images/logo/Logo.png}" alt="BetaBuilders Logo" width="200" height="auto">
         </a>
     </header>
 
@@ -50,5 +50,5 @@
     <ul class="restaurant-list" style="font-family: monospace;"></ul>
 
 </body>
-<script type="text/javascript" src="../static/script/search-restaurants.js"></script>
+<script type="text/javascript" th:src="@{/script/search-restaurants.js}"></script>
 </html>

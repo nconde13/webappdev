@@ -1,11 +1,15 @@
 package org.humber.student.repositories.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEntity {
 
     @Id
@@ -19,5 +23,5 @@ public class UserEntity {
     private String password;
 
     @Column(nullable = false)
-    private String roles = "STUDENT";
+    private String roles = "USER";
 }

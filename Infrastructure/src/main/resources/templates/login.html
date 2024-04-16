@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetaBuilders: Login</title>
-    <link rel="stylesheet" type="text/css" href="../static/style/main.css">
+    <link rel="stylesheet" th:href="@{/style/main.css}" type="text/css">
 </head>
 <body>
 <header>
-    <img src="../static/images/logo/Logo.png" alt="BetaBuilders Logo" width="200" height="auto">
+    <img th:src="@{/images/logo/Logo.png}" alt="BetaBuilders Logo" width="200" height="auto">
 </header>
 
 <div class="container">
@@ -25,16 +25,15 @@
     <!-- Link to the registration page -->
     <br/>
     <div class="register-link">
-        <a href="../static/register.html">Don't have an account? Register here.</a>
+        <a th:href="@{/register.html}">Don't have an account? Register here.</a>
     </div>
     <div class="register-link" id="admin-link" style="display: none">
-        <a href="/login?type=admin">Click here to login as Admin</a>
+        <a th:href="@{/login?type=admin}">Click here to login as Admin</a>
     </div>
     <div class="register-link" id="student-link" style="display: none">
-        <a href="/login">Click here to login as Customer</a>
+        <a th:href="@{/login}">Click here to login as Customer</a>
     </div>
 </div>
-</body>
 
-<script type="text/javascript" src="../static/script/login.js"></script>
+</body>
 </html>
