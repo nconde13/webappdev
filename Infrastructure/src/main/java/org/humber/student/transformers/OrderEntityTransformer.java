@@ -12,7 +12,7 @@ import java.util.List;
 
 public final class OrderEntityTransformer {
     
-    private final TrackingJPARepository trackingJPARepository;
+    private TrackingJPARepository trackingJPARepository;
 
     private OrderEntityTransformer(TrackingJPARepository trackingJPARepository) {
         this.trackingJPARepository = trackingJPARepository;

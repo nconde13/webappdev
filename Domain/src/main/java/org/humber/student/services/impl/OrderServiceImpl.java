@@ -20,22 +20,33 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order createOrder(Order order) {
-        return null;
+        return orderJPAService.save(order);
     }
 
     @Override
     public boolean deleteOrder(Long orderId) {
-        return false;
+        return orderJPAService.findById(orderId)
+                .map(order -> {
+                    orderJPAService.delete(order);
+                    return true;
+                })
+                .orElse(false);
     }
 
     @Override
-    public Order updateOrder(Order order) {
+    public Order updateOrder(Long orderId, Order order) {
+       order.setId(orderId);
        return orderJPAService.save(order); 
     }
 
     @Override
     public Order getOrder(Long orderId) {
        return orderJPAService.findById(orderId).orElse(null); 
+    }
+
+    @Override
+    public List<Order> getOrders() {
+        return orderJPAService.findAll(); 
     }
 
     @Override

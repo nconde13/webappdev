@@ -8,5 +8,7 @@ import java.util.Optional;
 public interface OrderJPAService{
     Optional<Order> findById(Long id);
     List<Order> findByUserId(Long userId);
+    List<Order> findAll(); 
     Order save(Order order);
+    void delete(Order order);
 }
